@@ -1,5 +1,8 @@
 # CS1660-Static-Website-Assignment-5
 
+## IP address of Load Balancer
+34.49.155.43:443
+
 # Project Requirements
 
 - Google Cloud Platform (GCP) account
