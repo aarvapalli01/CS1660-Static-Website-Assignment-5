@@ -1,0 +1,24 @@
+name: Deploy Static Website
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v2'
+      with:
+        service_account: 'my-service-account@static-website-assignment-5.iam.gserviceaccount.com'
+        workload_identity_provider: 'projects/25284225882/locations/global/workloadIdentityPools/github/providers/my-repo'
+
+    - name: 'Upload to Cloud Storage'
+      run: |
+        gsutil -m rsync -r ./public gs://static-website-project-bucket
