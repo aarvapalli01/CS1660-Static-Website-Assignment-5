@@ -21,4 +21,4 @@ jobs:
 
     - name: 'Upload to Cloud Storage'
       run: |
-        gsutil -m rsync -r ./public gs://static-website-project-bucket
+        gsutil cp static.html gs://static-website-project-bucket/index.html
