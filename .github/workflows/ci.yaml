@@ -23,5 +23,8 @@ jobs:
         workload_identity_provider: 'projects/25284225882/locations/global/workloadIdentityPools/github/providers/my-repo'
 
     - name: 'Upload to Cloud Storage'
-      run: |
-        gsutil cp static.html gs://static-website-project-bucket/index.html
+      uses: 'google-github-actions/upload-cloud-storage@v1'
+      with:
+        path: 'index.html'
+        destination: 'static-website-project-bucket'
+        parent: false
